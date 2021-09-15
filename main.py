@@ -8,9 +8,9 @@ import pyjokes
 print("in")
 
 listener = sr.Recognizer()
-engine = pyttsx3.init() #'sapi5'
+engine = pyttsx3.init('sapi5') #'sapi5'
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[0].id)
 
 
 def speak(text):

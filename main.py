@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import speech_recognition as sr
 import pyttsx3
 #import pywhatkit
@@ -70,4 +69,5 @@ def run():
 
 
 while True:
+    speak("my name is")
     run()

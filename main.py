@@ -20,14 +20,28 @@ def speak(text):
 
 
 def take_command():
+    rec = sr.Recognizer()
     with sr.Microphone() as source:
         print('listening...')
+        source.pause_threshold = 1
+        source.energy_threshold = 4000
         voice = listener.listen(source)
         command = listener.recognize_google(voice)
         command = command.lower()
         if 'alexa' in command:
             command = command.replace('alexa', '')
             print(command)
+    try:
+        print('Recognising...')
+        query = rec.recognize_google(audio, language='en-in')
+        print('User Said : ' , query)
+
+    except Exception as e:
+        print('exception : ',e)
+
+        speak("Sorry, I didn't hear that, Say that again Please")
+        return "None"
+    return query
     """
     try:
         with sr.Microphone() as source:
